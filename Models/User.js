@@ -13,6 +13,15 @@ UserSchema.methods.saludar = function() {
     return `Hola, mi nombre es ${this.user}`;
 };
 
+UserSchema.methods.getUserId = async function(id) {
+  const findUser = findById(id);
+  if(!findUser){
+    throw new Error('usuario no encontrado');
+  }
+  return findUser
+
+}
+
 UserSchema.statics.register = async function(user, email, password) {
     const passwordHash = await encrypt(password);
     const newUser = new this({
