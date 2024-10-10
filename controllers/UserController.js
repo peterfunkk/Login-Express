@@ -15,21 +15,21 @@ const registerCtrl = async (req, res) => {
       if (existingUser) {
           // Verificar cuál de los datos está duplicado
           if (existingUser.user === user) {
-              return res.status(400).send("El nombre de usuario ya está en uso");
+              return res.status(400).json({error: "El nombre de usuario ya está en uso"});
           }
           if (existingUser.email === email) {
-              return res.status(400).send("El correo electrónico ya está en uso");
+              return res.status(400).json({error:"El correo electrónico ya está en uso"});
           }
       }
 
       // Registrar el nuevo usuario
       const newUser = await User.register(user, email, password);
-      res.status(201).send(newUser);
-      console.log(newUser);
+      const respuesta = { mensaje: "Success", estado: "201"}
+      res.status(201).json(respuesta)
 
   } catch (error) {
       console.error(error);
-      res.status(500).send("Error en el servidor");
+      res.status(500).json({error:  "Error en el servidor"} );
   }
 };
 
@@ -46,7 +46,7 @@ const loginCtrl = async (req, res) => {
       });
         res.send(login)
       } catch (err) {
-        res.status(400).send(err.message);
+        res.status(400).json({error:  "Error en el servidor"} );
       }
 };
 
