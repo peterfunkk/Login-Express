@@ -39,24 +39,24 @@ To run this project locally, you will need:
    git clone https://github.com/your-username/repository-name.git
 
 2. Navigate to the project directory:
-```
-cd repository-name
-```
+  ```
+  cd repository-name
+  ```
 3. Install the dependencies:
 
-```
-npm install
-```
+  ```
+  npm install
+  ```
 4. Set up environment variables by creating a .env file in the root of the project and add the following variables:
-```
-PORT=3000
-JWT_SECRET=your_secret_key
-```
+  ```
+  PORT=3000
+  JWT_SECRET=your_secret_key
+  ```
 5. Start the application in development mode:
 
-```
-npm run dev
-```
+  ```
+  npm run dev
+  ```
 The server will start on http://localhost:3000.
 
 ## Usage
