@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 
 app.use(cors({
   origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
 
